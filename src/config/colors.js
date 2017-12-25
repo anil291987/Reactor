@@ -1,0 +1,16 @@
+export const HEADER = "#26272E";
+export const HEADER_TINT = "#ffffff";
+export const PRIMARY = "#2B2F35";
+export const PRIMARY_TEXT = "#505050";
+export const PRIMARY_TEXT_LIGHT = "#ffffff";
+export const PLACEHOLDER_TEXT_LIGHT = "#999999";
+export const ERROR_TEXT = "#A9444C";
+export const BACKGROUND = "#eaeaea";
+export const TINT = "#48A9DC";
+export const TINT_DARK = "#bdc3c7";
+export const BUTTON_TEXT = "#ffffff";
+export const INPUT_TEXT_BACKGROUND = "#eaeaea";
+export const ICON = "#ffffff";
+export const ICON_DARK = "#000000";
+export const CARD = "#ffffff";
+export const TRANSPARENT = "#ffffff50";
