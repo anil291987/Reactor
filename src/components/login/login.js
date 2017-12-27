@@ -9,8 +9,9 @@ class LoginView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: ""
+      username: "",
+      password: "",
+      securePassword: true
     };
   } // constructor
 
@@ -37,21 +38,21 @@ class LoginView extends Component {
               alignItems: "center"
             }}
           >
-            <Icon name="email" size={21} color={COLOR.PRIMARY_TEXT} />
+            <Icon name="account" size={21} color={COLOR.PRIMARY_TEXT} />
           </View>
 
           <TextInput
-            ref="emailInput"
-            underlineColorAndroid={COLOR.TRANSPARENT}
+            ref="usernameInput"
+            underlineColorAndroid={COLOR.INPUT_TEXT_BACKGROUND}
             style={{
               padding: 8,
               height: 40,
               flex: 1
             }}
             onFocus={() => this.props.setHideLogo(true)}
-            onChangeText={email => this.setState({ email })}
-            value={this.state.email}
-            placeholder="Email"
+            onChangeText={username => this.setState({ username })}
+            value={this.state.username}
+            placeholder="Username"
             autoCapitalize="none"
             autoCorrect={false}
             returnKeyType="next"
@@ -78,7 +79,7 @@ class LoginView extends Component {
 
           <TextInput
             ref="passwordInput"
-            underlineColorAndroid={COLOR.TRANSPARENT}
+            underlineColorAndroid={COLOR.INPUT_TEXT_BACKGROUND}
             style={{
               padding: 8,
               height: 40,
@@ -90,18 +91,42 @@ class LoginView extends Component {
             placeholder="Password"
             autoCapitalize="none"
             autoCorrect={false}
-            secureTextEntry={true}
+            secureTextEntry={this.state.securePassword}
             returnKeyType="done"
             onSubmitEditing={() => {
               this.props.setHideLogo(false);
             }}
           />
+
+          <View
+            style={{
+              width: 40,
+              backgroundColor: COLOR.WHITE,
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <TouchableOpacity
+              activeOpacity={0.5}
+              onPress={() => {
+                this.setState({
+                  securePassword: !this.state.securePassword
+                });
+              }}
+            >
+              {this.state.securePassword ? (
+                <Icon name="eye" size={24} color={COLOR.ICON_DARK} />
+              ) : (
+                <Icon name="eye-off" size={24} color={COLOR.ICON_DARK} />
+              )}
+            </TouchableOpacity>
+          </View>
         </View>
 
         <TouchableOpacity
           activeOpacity={0.5}
           onPress={() =>
-            this.props.login(this.state.email, this.state.password)
+            this.props.login(this.state.username, this.state.password)
           }
         >
           <View

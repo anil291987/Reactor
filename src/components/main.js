@@ -18,8 +18,8 @@ class Main extends Component {
       return (<LoginStack/>);
     }
 
-  }
-}
+  } // render
+} // Main
 
 export default connect(state => ({state: state.authenticate}), (dispatch) => ({
   actions: bindActionCreators(authActions, dispatch)

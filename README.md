@@ -1,25 +1,46 @@
-![Vector Icons for React Native](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png)
-
 # Reactor
 
-#### A Powerful **React-Native** Template.
+#### A powerful **react-native** template.
 
-### Screenshots
-
-To be added soon!
+## Screenshots
 
 <p float="left">
-<!-- <img src="./screenshots/01.png" width="250">
+<img src="./screenshots/01.png" width="250">
 <img src="./screenshots/02.png" width="250">
-<img src="./screenshots/03.png" width="250"> -->
+<img src="./screenshots/03.png" width="250">
 </p>
+
+<p float="left">
+<img src="./screenshots/04.png" width="250">
+<img src="./screenshots/05.png" width="250">
+<img src="./screenshots/06.png" width="250">
+</p>
+
+## Features
+
+* Conditional screen rendering with redux and react-navigation
+* redux-logger enabled
+* Implementation of custom drawer navigation
+* Dynamic login and register screen
+* Modern mix of flat and material design
+* Saving session state with AsyncStorage
+* Fully customizable components and styles
 
 ## Installation
 
-1. Initialize node modules with **npm install** or **yarn install**.
+1. Initialize node modules with **yarn install**.
 2. Create an instance of react-native packager by **react-native start**.
 3. Make sure a device is connected.
-4. Execute **react-native run-android** for android or **react-native run-ios** for iOS.
+   ### Android
+4. Execute **react-native run-android** for android
+   ### iOS
+5. **react-native run-ios** for iOS.
+
+   NOTE: Needs additional testing
+
+## Contribute
+
+Feel free to contribute to the development of this template. Please take note of the coding standard used in this project. You can request for a feature in the "Issues" section of the repository.
 
 ## License
 

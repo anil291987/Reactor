@@ -10,9 +10,9 @@ import { connect } from "react-redux";
 
 import * as COLOR from "../config/colors";
 
-class Settings extends Component {
+class Profile extends Component {
   static navigationOptions = ({ navigation }) => ({
-    title: "Settings",
+    title: "Profile",
     headerTintColor: COLOR.HEADER_TINT,
     headerStyle: {
       backgroundColor: COLOR.HEADER
@@ -30,56 +30,48 @@ class Settings extends Component {
   }); // navigationOptions
 
   render() {
+    const { authSession } = this.props.state;
     return (
       <View
         style={{
           flex: 1,
           padding: 8,
-          marginTop: 16,
           backgroundColor: COLOR.BACKGROUND
         }}
       >
         <View
           style={{
-            paddingVertical: 16
+            padding: 16,
+            backgroundColor: COLOR.CARD,
+            marginBottom: 8
           }}
         >
-          <Text style={{ textAlign: "center" }}>
-            This is the Settings component. Click the Logout button to return to
-            the Login screen.
-          </Text>
+          <Text
+            style={{ color: COLOR.TINT, fontSize: 12, fontWeight: "bold" }}
+          >{`USERNAME`}</Text>
+          <Text style={{ fontSize: 14 }}>{`${authSession.username}`}</Text>
         </View>
 
-        <TouchableOpacity
-          activeOpacity={0.5}
-          onPress={() => this.props.actions.logout()}
+        <View
+          style={{
+            padding: 16,
+            backgroundColor: COLOR.CARD,
+            marginBottom: 8
+          }}
         >
-          <View
-            style={{
-              height: 48,
-              backgroundColor: COLOR.TINT,
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <Text
-              style={{
-                color: COLOR.BUTTON_TEXT,
-                fontWeight: "bold"
-              }}
-            >
-              LOGOUT
-            </Text>
-          </View>
-        </TouchableOpacity>
+          <Text
+            style={{ color: COLOR.TINT, fontSize: 12, fontWeight: "bold" }}
+          >{`EMAIL`}</Text>
+          <Text style={{ fontSize: 14 }}>{`${authSession.email}`}</Text>
+        </View>
       </View>
     );
   } // render
-} // Settings
+} // Profile
 
 export default connect(
   state => ({ state: state.authenticate }),
   dispatch => ({
     actions: bindActionCreators(authActions, dispatch)
   })
-)(Settings);
+)(Profile);

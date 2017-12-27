@@ -27,7 +27,7 @@ class Home extends Component {
         <Icon name="menu" size={32} color={COLOR.ICON} />
       </TouchableOpacity>
     )
-  });
+  }); // navigationOptions
 
   render() {
     return (
@@ -35,15 +35,16 @@ class Home extends Component {
         style={{
           flex: 1,
           padding: 8,
+          marginTop: 16,
           backgroundColor: COLOR.BACKGROUND
         }}
       >
-        <Text>
+        <Text style={{ textAlign: "center" }}>
           This is the Home component. You can add your main functions here.
         </Text>
       </View>
     );
-  }
-}
+  } // render
+} // Home
 
 export default Home;

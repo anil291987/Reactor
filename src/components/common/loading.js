@@ -21,7 +21,11 @@ class ModalProgress extends Component {
               backgroundColor: COLOR.CARD,
               padding: 32,
               flexDirection: "row",
-              alignItems: "center"
+              alignItems: "center",
+              shadowOffset: { width: 0, height: 13 },
+              shadowOpacity: 0.3,
+              shadowRadius: 6,
+              elevation: 3
             }}
           >
             <ActivityIndicator isVisible={true} size="large" />

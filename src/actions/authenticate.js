@@ -33,7 +33,11 @@ export function login(username, password) {
     // FOR TESTING ONLY
     setTimeout(() => {
       if (username == "test" && password == "test") {
-        const session = { token: "abcd1234", username: "test" };
+        const session = {
+          token: "abcd1234",
+          username,
+          email: "test@nomail.com"
+        };
         dispatch(loginSuccess(session));
       } else {
         dispatch(loginFailed("Authentication Failed"));

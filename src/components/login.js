@@ -20,7 +20,6 @@ import { connect } from "react-redux";
 import LoginView from "./login/login";
 import RegisterView from "./login/register";
 import ModalProgress from "./common/loading";
-import TitleText from "./common/title";
 import { CARD } from "../config/colors";
 
 import { DATA_SESSION } from "../config/global";
@@ -118,12 +117,10 @@ class Login extends Component {
             justifyContent: "space-between"
           }}
         >
-          {/* Replace with app logo */}
-          {/* <Image
-            style={{ height: 24, width: 107 }}
+          <Image
+            style={{ height: 45, width: 161 }}
             source={require("../assets/img/logo.png")}
-          /> */}
-          <TitleText size={16} />
+          />
 
           <View>{this.renderViewSwitch()}</View>
         </View>
@@ -147,13 +144,11 @@ class Login extends Component {
               alignItems: "center"
             }}
           >
-            {/* Replace with app logo */}
-            {/* <Image
+            <Image
               style={{ width: 256 }}
               resizeMode="contain"
               source={require("../assets/img/logo.png")}
-            /> */}
-            <TitleText size={32} />
+            />
           </View>
         </View>
       );
@@ -161,7 +156,7 @@ class Login extends Component {
   }; // renderLogo
 
   render() {
-    // if loading show large logo
+    // if loading show splash
     if (this.state.initializing) {
       return (
         <View
@@ -177,17 +172,17 @@ class Login extends Component {
               alignItems: "center"
             }}
           >
-            {/* Replace with app logo */}
-            {/* <Image
+            <Image
               style={{ width: 256 }}
               resizeMode="contain"
               source={require("../assets/img/logo.png")}
-            /> */}
-            <TitleText size={32} />
+            />
           </View>
         </View>
       );
     }
+
+    // conditional login/register view
     return (
       <View
         style={{

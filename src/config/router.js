@@ -7,6 +7,7 @@ import {
 } from "react-navigation";
 
 import Home from "../components/home";
+import Profile from "../components/profile";
 import Settings from "../components/settings";
 import Login from "../components/login";
 import ForgotPassword from "../components/forgotpassword";
@@ -16,6 +17,12 @@ import DrawerContainer from "../components/drawer";
 const HomeItem = StackNavigator({
   Home: {
     screen: Home
+  }
+});
+
+const ProfileItem = StackNavigator({
+  Profile: {
+    screen: Profile
   }
 });
 
@@ -29,6 +36,9 @@ export const MainStack = DrawerNavigator(
   {
     HomeItem: {
       screen: HomeItem
+    },
+    ProfileItem: {
+      screen: ProfileItem
     },
     SettingsItem: {
       screen: SettingsItem
@@ -53,7 +63,6 @@ const navigateOnce = getStateForAction => (action, state) => {
     routeName === state.routes[state.routes.length - 1].routeName
     ? null
     : getStateForAction(action, state);
-  // you might want to replace 'null' with 'state' if you're using redux (see comments below)
 };
 
 MainStack.router.getStateForAction = navigateOnce(

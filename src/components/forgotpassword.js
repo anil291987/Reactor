@@ -15,7 +15,7 @@ class ForgotPassword extends Component {
         backgroundColor: COLOR.HEADER
       }
     };
-  };
+  }; // navigationOptions
 
   render() {
     return (
@@ -23,6 +23,7 @@ class ForgotPassword extends Component {
         style={{
           flex: 1,
           padding: 8,
+          marginTop: 16,
           backgroundColor: COLOR.BACKGROUND
         }}
       >
@@ -31,7 +32,7 @@ class ForgotPassword extends Component {
             paddingVertical: 16
           }}
         >
-          <Text>
+          <Text style={{ textAlign: "center" }}>
             This is the ForgotPassword component. Place account recovery
             instructions here.
           </Text>
@@ -61,7 +62,7 @@ class ForgotPassword extends Component {
         </TouchableOpacity>
       </View>
     );
-  }
-}
+  } // render
+} // ForgotPassword
 
 export default ForgotPassword;

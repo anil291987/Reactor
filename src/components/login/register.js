@@ -8,7 +8,10 @@ class RegisterView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      textInput: ""
+      usernameInput: "",
+      emailInput: "",
+      passwordInput: "",
+      securePassword: true
     };
   } // constructor
 
@@ -18,12 +21,10 @@ class RegisterView extends Component {
         style={{
           padding: 16,
           margin: 16
-          // backgroundColor: COLOR.CARD
         }}
       >
         <View
           style={{
-            // padding: 16,
             marginBottom: 4
           }}
         >
@@ -34,7 +35,7 @@ class RegisterView extends Component {
               fontWeight: "bold"
             }}
           >
-            {`TextInput`}
+            {`USERNAME`}
           </Text>
           <TextInput
             style={{ height: 36, color: COLOR.PRIMARY_TEXT_LIGHT }}
@@ -42,15 +43,14 @@ class RegisterView extends Component {
             autoCapitalize="none"
             autoCorrect={false}
             placeholderTextColor={COLOR.PLACEHOLDER_TEXT_LIGHT}
-            onChangeText={textInput => this.setState({ textInput })}
-            value={this.state.textInput}
-            placeholder="TextInput"
+            onChangeText={usernameInput => this.setState({ usernameInput })}
+            value={this.state.usernameInput}
+            placeholder="user"
           />
         </View>
 
         <View
           style={{
-            // padding: 16,
             marginBottom: 4
           }}
         >
@@ -61,7 +61,7 @@ class RegisterView extends Component {
               fontWeight: "bold"
             }}
           >
-            {`TextInput`}
+            {`EMAIL`}
           </Text>
           <TextInput
             style={{ height: 36, color: COLOR.PRIMARY_TEXT_LIGHT }}
@@ -69,16 +69,15 @@ class RegisterView extends Component {
             autoCapitalize="none"
             autoCorrect={false}
             placeholderTextColor={COLOR.PLACEHOLDER_TEXT_LIGHT}
-            onChangeText={textInput => this.setState({ textInput })}
-            value={this.state.textInput}
-            placeholder="TextInput"
+            onChangeText={emailInput => this.setState({ emailInput })}
+            value={this.state.emailInput}
+            placeholder="email@domain.com"
           />
         </View>
 
         <View
           style={{
-            // padding: 16,
-            marginBottom: 4
+            marginBottom: 16
           }}
         >
           <Text
@@ -88,72 +87,45 @@ class RegisterView extends Component {
               fontWeight: "bold"
             }}
           >
-            {`TextInput`}
+            {`PASSWORD`}
           </Text>
-          <TextInput
-            style={{ height: 36, color: COLOR.PRIMARY_TEXT_LIGHT }}
-            underlineColorAndroid={COLOR.PRIMARY_TEXT_LIGHT}
-            autoCapitalize="none"
-            autoCorrect={false}
-            placeholderTextColor={COLOR.PLACEHOLDER_TEXT_LIGHT}
-            onChangeText={textInput => this.setState({ textInput })}
-            value={this.state.textInput}
-            placeholder="TextInput"
-          />
-        </View>
+          <View style={{ flexDirection: "row" }}>
+            <TextInput
+              style={{ height: 36, flex: 1, color: COLOR.PRIMARY_TEXT_LIGHT }}
+              underlineColorAndroid={COLOR.PRIMARY_TEXT_LIGHT}
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholderTextColor={COLOR.PLACEHOLDER_TEXT_LIGHT}
+              onChangeText={passwordInput => this.setState({ passwordInput })}
+              placeholder="********"
+              value={this.state.passwordInput}
+              secureTextEntry={this.state.securePassword}
+            />
 
-        <View
-          style={{
-            // padding: 16,
-            marginBottom: 4
-          }}
-        >
-          <Text
-            style={{
-              color: COLOR.PRIMARY_TEXT_LIGHT,
-              fontSize: 12,
-              fontWeight: "bold"
-            }}
-          >
-            {`TextInput`}
-          </Text>
-          <TextInput
-            style={{ height: 36, color: COLOR.PRIMARY_TEXT_LIGHT }}
-            underlineColorAndroid={COLOR.PRIMARY_TEXT_LIGHT}
-            autoCapitalize="none"
-            autoCorrect={false}
-            placeholderTextColor={COLOR.PLACEHOLDER_TEXT_LIGHT}
-            onChangeText={textInput => this.setState({ textInput })}
-            value={this.state.textInput}
-            placeholder="TextInput"
-          />
-        </View>
-
-        <View
-          style={{
-            // padding: 16,
-            marginBottom: 4
-          }}
-        >
-          <Text
-            style={{
-              color: COLOR.PRIMARY_TEXT_LIGHT,
-              fontSize: 12,
-              fontWeight: "bold"
-            }}
-          >
-            {`TextInput`}
-          </Text>
-          <TextInput
-            style={{ height: 36, color: COLOR.PRIMARY_TEXT_LIGHT }}
-            underlineColorAndroid={COLOR.PRIMARY_TEXT_LIGHT}
-            autoCapitalize="none"
-            autoCorrect={false}
-            placeholderTextColor={COLOR.PLACEHOLDER_TEXT_LIGHT}
-            onChangeText={textInput => this.setState({ textInput })}
-            value={this.state.textInput}
-            placeholder="TextInput"
-          />
+            <View
+              style={{
+                width: 40,
+                backgroundColor: COLOR.WHITE,
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <TouchableOpacity
+                activeOpacity={0.5}
+                onPress={() => {
+                  this.setState({
+                    securePassword: !this.state.securePassword
+                  });
+                }}
+              >
+                {this.state.securePassword ? (
+                  <Icon name="eye" size={24} color={COLOR.ICON} />
+                ) : (
+                  <Icon name="eye-off" size={24} color={COLOR.ICON} />
+                )}
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
 
         <TouchableOpacity activeOpacity={0.5}>
